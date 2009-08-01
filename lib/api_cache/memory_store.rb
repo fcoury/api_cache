@@ -21,6 +21,11 @@ class APICache
     def exists?(key)
       !@cache[key].nil?
     end
+    
+    def delete(key)
+      puts "#{key}: EXPIRED"
+      @cache.delete(key)
+    end
 
     def expired?(key, timeout)
       Time.now - created(key) > timeout

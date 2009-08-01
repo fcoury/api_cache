@@ -20,6 +20,10 @@ class APICache
     def exists?(key)
       @moneta.key?(key)
     end
+    
+    def delete(key)
+      @moneta.delete(key)
+    end
 
     # Has a given time passed since the key was set?
     def expired?(key, timeout)

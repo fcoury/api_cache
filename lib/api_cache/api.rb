@@ -72,10 +72,6 @@ class APICache
       if previously_queried?
         if Time.now - queried_at > @period
           APICache.logger.debug "Queryable: true - retry_time has passed"
-        else
-          APICache.logger.debug "Queryable: false - queried too recently"
-          raise APICache::CannotFetch,
-            "Cannot fetch #{@key}: queried too recently"
         end
       else
         APICache.logger.debug "Queryable: true - never used API before"
